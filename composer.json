@@ -1,0 +1,31 @@
+{
+    "name": "h0akd/corecms",
+    "description": "",
+    "authors": [
+        {
+            "name": "Mai Ngọc Hoá",
+            "email": "h0a.kd93@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*",
+        "cartalyst/sentry": "2.0.*",
+        "h0akd/bootstrapform": "dev-master",
+        "h0akd/htmlminify": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/models",
+            "src/controllers"
+        ],
+        "files": [
+            "src/H0akd/Corecms/Helpers/functions.php"
+        ],
+        "psr-0": {
+            "H0akd\\Corecms\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
