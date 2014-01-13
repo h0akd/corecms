@@ -58,7 +58,7 @@ Bước 7 chạy các lện sau:
     
     php artisan asset:publish h0akd/corecms    
     php artisan config:publish h0akd/corecms
-    php migrate --package=cartalyst/sentry
+    php artisan migrate --package=cartalyst/sentry
     php artisan migrate --package=h0akd/corecms
     php artisan db:seed
 
