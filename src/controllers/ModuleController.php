@@ -97,9 +97,18 @@ class ModuleController extends Controller {
             'child' => array_values(Input::get("child")),
         );
 
+
         $rules = array(
             "name" => "required|max:255",
         );
+
+        //Loại bỏ phần tử cuối cùng trong trường hợp user không nhập đầy đủ thông tin
+        foreach ($data['child'] as $key => $child) {
+            if ($child['menu-title'] === "" || $child['tab-title'] === "" || $child['url'] === "") {
+                unset($data['child'][$key]);
+            }
+        }
+
 
         $validator = Validator::make($data, $rules);
         if ($validator->fails()) {
