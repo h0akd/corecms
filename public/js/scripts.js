@@ -1,5 +1,7 @@
 $(function() {
 
+    $(".alert").alert();
+
     var autoloadElements = $('[data-toggle="autoload"]');
     var count = autoloadElements.length;
     for (var i = 0; i < count; i++) {
@@ -9,7 +11,7 @@ $(function() {
             async: false,
             success: function(data) {
                 $(entry).html(data);
-            }            
+            }
         });
     }
 
