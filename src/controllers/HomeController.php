@@ -55,7 +55,7 @@ class HomeController extends Controller {
 
         // Set Validation Rules
         $rules = array(
-            'email' => 'required|min:4|max:255' . (($input['email'] !== "admintrator") ? "|email" : ""),
+            'email' => 'required|min:4|max:255' . (($input['email'] !== "administrator") ? "|email" : ""),
             'password' => 'required|min:6'
         );
 
