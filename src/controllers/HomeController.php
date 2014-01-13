@@ -134,9 +134,14 @@ class HomeController extends Controller {
         $modules = \H0akd\Corecms\Models\Module::all();
         foreach ($modules as $module) {
             if ($admintrator || $this->hasPermistionAccesModule($user, $module->alias)) {
+                $childs = array();
+                foreach (json_decode($module->childs, 1) as $child) {
+                    $child['url'] = root_uri() . (substr($child['url'], 0, 1) === "/" ? "" : "/") . $child['url'];
+                    $childs[] = $child;
+                }
                 $results[] = array(
                     "name" => $module->name,
-                    "childs" => json_decode($module->childs, 1),
+                    'childs' => $childs,
                 );
             }
         }
