@@ -1,10 +1,10 @@
 $(function() {
-    $(document).on("click", "button[data-action='edit']", function() {
+    $(document).on("click", "[data-action='edit']", function() {
         var url = $(this).attr("data-url");
         window.location.href = url;
     });
 
-    $(document).on("click", "button[data-action='delete']", function() {
+    $(document).on("click", "[data-action='delete']", function() {
         var url = $(this).attr("data-url");
         if (!confirm("Bạn có thực sự muốn xoá bản ghi này không")) {
             return;
@@ -27,7 +27,7 @@ $(function() {
         });
     });
 
-    $(document).on("click", "button[data-action='active']", function() {
+    $(document).on("click", "[data-action='active']", function() {
         var url = $(this).attr("data-url");
         if (!confirm("Bạn có thực sự muốn kích hoạt bản ghi này không")) {
             return;

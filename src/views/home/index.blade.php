@@ -22,8 +22,17 @@
             data-url="{{URL::route('admin.home.sidenav')}}">                
         </ul>
 
+        <a href="#" 
+           data-id="home" 
+           data-title="Trang chủ" 
+           data-url="{{URL::route('admin.home.dashboard')}}" 
+           data-togle="create-tab"
+           style="display: none"> 
+        </a>
+
         <ul id="navtabs" class="nav nav-tabs">
             <li class="active">
+                <i class="fa fa-refresh tab-refresh-icon"></i>
                 <a href="#home" data-toggle="tab">Trang chủ</a>
             </li>
         </ul>
