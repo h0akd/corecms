@@ -36,7 +36,7 @@ Bước 6: Cài đặt database seed để tạo ra admintror user. Hãy cẩn t
             public function run() {
                 DB::table('users')->delete();
                 Sentry::getUserProvider()->create(array(
-                    'email' => 'admintrator',
+                    'email' => 'administrator',
                     'password' => '123456',
                     'activated' => 1,
                 ));
@@ -45,15 +45,21 @@ Bước 6: Cài đặt database seed để tạo ra admintror user. Hãy cẩn t
 
                 $group = new \H0akd\Corecms\Models\Group();
                 $group->title = "Admintrator";
-                $group->name = "admintrator";
+                $group->name = "administrator";
                 $group->save();
 
-                $userUser = Sentry::getUserProvider()->findByLogin('admintrator');
-                $userUser->addGroup(Sentry::getGroupProvider()->findByName('admintrator'));
+                $userUser = Sentry::getUserProvider()->findByLogin('administrator');
+                $userUser->addGroup(Sentry::getGroupProvider()->findByName('administrator'));
          }
 
        }
 
-
+Bước 7 chạy các lện sau:
+    
+    php artisan asset:publish h0akd/corecms    
+    php artisan config:publish h0akd/corecms
+    php migrate --package=cartalyst/sentry
+    php artisan migrate --package=h0akd/corecms
+    php artisan db:seed
 
 

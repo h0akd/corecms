@@ -23,7 +23,7 @@ class HomeController extends Controller {
      */
     public function sidenav() {
         $user = Sentry::getUser();
-        $admintrator = Sentry::findGroupByName('admintrator');
+        $admintrator = Sentry::findGroupByName('administrator');
         if (!$user->inGroup($admintrator)) {
             $modules = $this->getUserModules($user, false);
         } else {

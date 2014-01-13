@@ -18,7 +18,7 @@ Danh sách nhóm quản trị viên
     <tbody>
         @foreach($models as $row)
         <tr>
-            @if($row->name==="admintrator")
+            @if($row->name==="administrator")
             <td>{{$row->id}}</td>
             <td>{{$row->title}}</td>
             <td>{{$row->name}}</td>
