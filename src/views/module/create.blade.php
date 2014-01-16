@@ -37,7 +37,7 @@ Thêm module mới
 <p class="text-danger">
     {{ $errors->has('alias')?$errors->first('alias'): '' }}
 </p>
-{{ BSTForm::text("alias","",array("placeholder"=>"Nhập module alias","style"=>"width:300px","max"=>"40","required"=>"true"))}}
+{{ BSTForm::text("alias","",array("placeholder"=>"Nhập module alias","style"=>"width:300px","max"=>"40","required"=>"true","pattern"=>"([a-zA-Z]|\.|_|-)+"))}}
 {{ BSTForm::endGroup()}}
 {{ BSTForm::help("Module alias phải là một chuỗi gồm các kí tự a-z và A-Z và không có dấu cách") }}
 {{ BSTForm::help("Module alias sẽ được dùng để check quyền") }}
