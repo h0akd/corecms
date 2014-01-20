@@ -2,7 +2,6 @@
 
 Route::filter('loged', function() {
 
-
     if (Sentry::getUser() == null || !Sentry::check()) {
         if (Request::ajax()) {
             return App::abort(401);
