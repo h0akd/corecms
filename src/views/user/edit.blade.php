@@ -75,6 +75,13 @@ foreach ($usergroups as $usergroup) {
     </tbody>
 </table>
 {{ BSTForm::endGroup()}}
+
+
+
+{{ BSTForm::startGroup()}}
+{{ BSTForm::checkbox2("Quản trị viên cấp cao","is_administrator",1,$model->is_administrator==1?true:false)}}
+{{ BSTForm::endGroup()}}
+
 <!-- Actions button -->
 {{ BSTForm::actionButtons('Save',"Reset") }}
 <!-- Close Form -->

@@ -18,18 +18,11 @@ Danh sách nhóm quản trị viên
     <tbody>
         @foreach($models as $row)
         <tr>
-            @if($row->name==="administrator")
-            <td>{{$row->id}}</td>
-            <td>{{$row->title}}</td>
-            <td>{{$row->name}}</td>
-            <td colspan="2">Disabled</td>
-            @else
             <td>{{$row->id}}</td>
             <td>{{$row->title}}</td>
             <td>{{$row->name}}</td>
             <td style="text-align: center">{{ BSTForm::button('<span class="glyphicon glyphicon-pencil"></span>','info',array("class"=>"btn-xs","data-url"=>URL::route("admin.groups.edit",$row->id) ,"data-action"=>"edit")) }}</td>
             <td style="text-align: center">{{ BSTForm::button('<span class="glyphicon glyphicon-trash"></span>','danger',array("class"=>"btn-xs","data-url"=>URL::route("admin.groups.destroy",$row->id),"data-action"=>"delete")) }}</td>
-            @endif
         </tr>
         @endforeach
         <?php $left = $models->getPerPage() - $models->count(); ?>

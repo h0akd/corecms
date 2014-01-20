@@ -91,6 +91,11 @@ Thêm module mới
     </tbody>
 </table>
 {{ BSTForm::endGroup()}}
+
+{{ BSTForm::startGroup()}}
+{{ BSTForm::checkbox2("Quản trị viên cấp cao","is_administrator",1,false)}}
+{{ BSTForm::endGroup()}}
+
 <!-- Actions button -->
 {{ BSTForm::actionButtons('Save',"Reset") }}
 <!-- Close Form -->

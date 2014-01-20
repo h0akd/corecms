@@ -12,7 +12,8 @@ Danh sách các quản trị viên
             <td>Họ</td>
             <td>Tên</td>
             <td>Email</td>
-            <td style="width: 80px;text-align: center">Change Password</td>
+            <td>Cấp độ</td>
+            <td style="width: 100px;text-align: center">Password</td>
             <td style="width: 40px;text-align: center">Active</td>
             <td style="width: 40px;text-align: center">Sửa</td>
         </tr>
@@ -24,6 +25,7 @@ Danh sách các quản trị viên
             <td>{{$row->first_name}}</td>
             <td>{{$row->last_name}}</td>
             <td>{{$row->email}}</td>
+            <td>{{$row->is_administrator==1?"Cấp cao":"Thường"}}</td>
             <td style="text-align: center">{{ BSTForm::button('<i class="fa fa-key"></i>','warning',array("class"=>"btn-xs","data-url"=>URL::route("admin.users.change",$row->id) ,"data-action"=>"edit")) }}</td>
             <td style="text-align: center">{{ BSTForm::button('<i class="fa '.($row->activated?"fa-check-square":"fa-square").'"></i>','warning',array("class"=>"btn-xs","data-url"=>URL::route("admin.users.handactive",$row->id) ,"data-action"=>"active")) }}</td>
             <td style="text-align: center">{{ BSTForm::button('<span class="glyphicon glyphicon-pencil"></span>','info',array("class"=>"btn-xs","data-url"=>URL::route("admin.users.edit",$row->id) ,"data-action"=>"edit")) }}</td>
@@ -31,7 +33,7 @@ Danh sách các quản trị viên
         @endforeach
         <?php $left = $models->getPerPage() - $models->count(); ?>
         @for($i=0;$i<$left;$i++)
-        <tr style="height: 38px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr style="height: 38px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         @endfor
     </tbody>
 </table>
