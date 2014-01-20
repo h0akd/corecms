@@ -3,6 +3,8 @@
 namespace H0akd\Corecms;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
+
 class CorecmsServiceProvider extends ServiceProvider {
 
     /**
@@ -37,6 +39,18 @@ class CorecmsServiceProvider extends ServiceProvider {
         $htmlminitify = new \H0akd\Htmlminify\HtmlminifyServiceProvider($this->app);
         $this->app->register($htmlminitify);
         $htmlminitify->boot();
+
+        AliasLoader::getInstance()->alias('Sentry', 'Cartalyst\Sentry\Facades\Laravel\Sentry');
+
+        $this->app['corecms.install'] = $this->app->share(function($app) {
+            return new \H0akd\Corecms\Commands\InstallCommand();
+        });
+        $this->app['corecms.seed'] = $this->app->share(function($app) {
+            return new \H0akd\Corecms\Commands\SeedCommand();
+        });
+        $this->commands(
+                'corecms.install', 'corecms.seed'
+        );
     }
 
     /**
