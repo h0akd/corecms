@@ -4,6 +4,7 @@ namespace H0akd\Corecms;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
+use
 
 class CorecmsServiceProvider extends ServiceProvider {
 

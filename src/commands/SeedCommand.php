@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use H0akd\Corecms\Models\AdminUser;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 class SeedCommand extends Command {
 
@@ -13,7 +15,7 @@ class SeedCommand extends Command {
     protected $description = 'Create user for core cms';
 
     public function fire() {
-        if (!Schema::hasTable('uses')) {
+        if (!Schema::hasTable('users')) {
             $this->error("Table users not exist");
             return;
         }
@@ -25,11 +27,15 @@ class SeedCommand extends Command {
 
         $user = new AdminUser();
         $user->email = $email;
-        $user->password = $password;
-        $user->firstname = $firstname;
-        $user->lastname = $lastname;
-        $user->is_admintrator = $this->option("admintrator");
-        $user->save();
+        $user->password = Hash::make($password);
+        $user->first_name = $firstname;
+        $user->last_name = $lastname;
+        $user->is_administrator = $this->option("admintrator");
+        if ($user->save()) {
+            $this->info("Users is created");
+        } else {
+            $this->error("Can not seed user");
+        }
     }
 
     protected function getArguments() {
