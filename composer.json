@@ -10,7 +10,7 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.1.*",
-        "cartalyst/sentry": "2.0.*",
+        "cartalyst/sentry": "2.1.*",
         "h0akd/bootstrapform": "dev-master",
         "h0akd/htmlminify": "dev-master"
     },
